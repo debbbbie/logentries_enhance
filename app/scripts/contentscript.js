@@ -29,7 +29,7 @@ function hide_leftnav(){
   $('.principal').fadeIn();
 }
 function show_leftnav(){
-  $('.principal').fadeIn();
+  $('.principal').fadeOut();
 }
 
 function hide_timeline(){
