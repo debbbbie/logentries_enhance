@@ -2,13 +2,73 @@
 
 console.log('logentries extension loaded');
 
-var i = setInterval(function(){
-    var e = document.getElementById('le-in-app-toaster-bottom');
-    if(e){
-        e.style.display = 'none';
-        window.clearInterval(i);
-        console.log('stop');
+function hide_toaster_on_display(){
 
-        document.getElementById('sidebarbutton-transparent').click();
+  window.toaster = setInterval(function() {
+    var $toaster = $('#le-in-app-toaster-bottom');
+    console.log($toaster.size())
+    if ($toaster.size() > 0) {
+      $toaster.hide();
+      window.clearInterval(window.toaster);
     }
-}, 1000);
+  }, 200);
+}
+
+function hide_sidebar(){
+
+  document.getElementById('sidebarbutton-transparent').click();
+
+  $('#page').css('padding-left', '0px');
+  $('.principal').fadeOut();
+  $('#sidebarbutton').css('margin-left', '0px');
+  $('#sidebarbutton-transparent').css('margin-left', '0px');
+  $('#page-heading').css('border-left', '0');
+}
+
+function hide_leftnav(){
+  $('.principal').fadeIn();
+}
+function show_leftnav(){
+  $('.principal').fadeIn();
+}
+
+function hide_timeline(){
+  $('.timeline-panel').hide();
+}
+
+function pretty_topnav(){
+
+  $('.v5-breadcrumb').after($(".ui-tabs"));
+
+  $("#page-entries-navigation").css('margin-top', '2px' );
+}
+
+function check_loaded(fn){
+  window.check_loaded = setInterval(function(){
+    if(document.readyState == 'complete'){
+      window.clearInterval(window.check_loaded);
+      fn();
+    }
+  }, 500);
+}
+
+check_loaded(function(){
+
+  hide_toaster_on_display();
+  hide_timeline();
+  pretty_topnav();
+  hide_sidebar();
+
+  $('#sidebarbutton-transparent').click(function(){
+    if($(this).is($('.log-selector-open'))){
+      hide_leftnav();
+    }else {
+      show_leftnav();
+    }
+  });
+
+  $(window).on('hashchange', function() {
+    hide_timeline();
+  });
+
+});
