@@ -43,6 +43,12 @@ function pretty_topnav(){
   $("#page-entries-navigation").css('margin-top', '2px' );
 }
 
+function pretty_content(){
+
+	$(".events-panel").css({  paddingLeft: 0, marginTop: 0, paddingTop: 0 });
+	$("#main-content-separator").css('height', '110px');
+}
+
 function check_loaded(fn){
   window.check_loaded = setInterval(function(){
     if(document.readyState == 'complete'){
@@ -58,6 +64,7 @@ check_loaded(function(){
   hide_timeline();
   pretty_topnav();
   hide_sidebar();
+  pretty_content();
 
   $('#sidebarbutton-transparent').click(function(){
     if($(this).is($('.log-selector-open'))){
