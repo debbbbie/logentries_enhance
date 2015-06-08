@@ -26,10 +26,16 @@ function hide_sidebar(){
 }
 
 function hide_leftnav(){
-  $('.principal').fadeIn();
+  console.log('hide leftnav');
+  $('.principal').fadeOut();
+  $('#sidebar-log-selector').css('margin-left', '0');
+  $('.ls-heading').css('margin-left', '0');
 }
 function show_leftnav(){
-  $('.principal').fadeOut();
+  console.log('show leftnav');
+  $('.principal').fadeIn();
+  $('#sidebar-log-selector').css('margin-left', '60px');
+  $('.ls-heading').css('margin-left', '60px');
 }
 
 function hide_timeline(){
@@ -45,6 +51,8 @@ function pretty_topnav(){
 function pretty_content(){
 	$(".events-panel").css({  paddingLeft: 0, marginTop: 0, paddingTop: 0});
 	$("#main-content-separator").css('height', '110px');
+	
+	$(".tree-selector-searcher").hide();
 }
 
 function width_live_tail(){
@@ -60,6 +68,8 @@ function check_loaded(fn){
   }, 500);
 }
 
+
+
 check_loaded(function(){
 
   hide_toaster_on_display();
@@ -70,7 +80,7 @@ check_loaded(function(){
   width_live_tail();
 
   $('#sidebarbutton-transparent').click(function(){
-    if($(this).is($('.log-selector-open'))){
+    if(!$(this).is($('.log-selector-open'))){
       hide_leftnav();
     }else {
       show_leftnav();
