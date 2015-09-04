@@ -43,6 +43,11 @@ function hide_timeline(){
   $("#page-entries-navigation").css('margin-top', '2px' );
 }
 
+function hide_validation_text(){
+  $(".validation_text").hide();
+  $(".search-toogle-mode").css({ position: 'absolute', top: '44px', right: '290px' });
+}
+
 function pretty_topnav(){
   $('.v5-breadcrumb').after($(".ui-tabs"));
  // $("#page-entries-navigation").css('margin-top', '2px' );
@@ -78,6 +83,7 @@ check_loaded(function(){
   hide_sidebar();
   pretty_content();
   width_live_tail();
+  hide_validation_text();
 
   $('#sidebarbutton-transparent').click(function(){
     if(!$(this).is($('.log-selector-open'))){
