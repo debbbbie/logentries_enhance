@@ -44,8 +44,7 @@ function hide_timeline(){
 }
 
 function hide_searchbar(){
-  $(".validation_text").hide();
-  $(".timesearch-panel").hide();
+  $(".validation_text").hide().siblings('span').hide();
   $(".search-toogle-mode").css({ position: 'absolute', top: '44px', right: '290px' });
 }
 
