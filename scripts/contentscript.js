@@ -43,8 +43,9 @@ function hide_timeline(){
   $("#page-entries-navigation").css('margin-top', '2px' );
 }
 
-function hide_validation_text(){
+function hide_searchbar(){
   $(".validation_text").hide();
+  $(".timesearch-panel").hide();
   $(".search-toogle-mode").css({ position: 'absolute', top: '44px', right: '290px' });
 }
 
@@ -83,7 +84,7 @@ check_loaded(function(){
   hide_sidebar();
   pretty_content();
   width_live_tail();
-  hide_validation_text();
+  hide_searchbar();
 
   $('#sidebarbutton-transparent').click(function(){
     if(!$(this).is($('.log-selector-open'))){
