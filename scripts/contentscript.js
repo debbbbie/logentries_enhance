@@ -22,7 +22,7 @@ function hide_sidebar(){
   $('.principal').fadeOut();
   $('#sidebarbutton').css('margin-left', '0px');
   $('#sidebarbutton-transparent').css('margin-left', '0px');
-  $('#page-heading').css('border-left', '0');
+  $('#page-heading').css('borderLeft', '2px');
 }
 
 function hide_leftnav(){
@@ -30,6 +30,9 @@ function hide_leftnav(){
   $('.principal').fadeOut();
   $('#sidebar-log-selector').css('margin-left', '0');
   $('.ls-heading').css('margin-left', '0');
+
+  $('#page-heading').css('borderLeft', '2px');
+
 }
 function show_leftnav(){
   console.log('show leftnav');
@@ -39,13 +42,15 @@ function show_leftnav(){
 }
 
 function hide_timeline(){
-  $('.timeline-panel').hide();
+  $('#new-timeline-content').hide();
+  $("#main-heading-menu").parents('div.ui-tabs').hide();
   $("#page-entries-navigation").css('margin-top', '2px' );
 }
 
 function hide_searchbar(){
   $(".validation_text").hide().siblings('span').hide();
-  $(".search-toogle-mode").css({ position: 'absolute', top: '44px', right: '290px' });
+  $(".search-toogle-mode").hide();//.css({ position: 'absolute', top: '44px', right: '290px' }).hide();
+  $(".timesearch-baseline").css('marginTop', '-5px');
 }
 
 function pretty_topnav(){
@@ -56,6 +61,7 @@ function pretty_topnav(){
 function pretty_content(){
 	$(".events-panel").css({  paddingLeft: 0, marginTop: 0, paddingTop: 0});
 	$("#main-content-separator").css('height', '110px');
+  $("#new-log-events-panel").css('paddingTop', '150px');
 	
 	$(".tree-selector-searcher").hide();
 }
